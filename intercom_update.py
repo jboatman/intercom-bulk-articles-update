@@ -1,12 +1,14 @@
 import requests
 import json
 import csv
+import configparser
 
+config = configparser.ConfigParser()
+config.read('config.ini')
+token = config['Auth']['token']
 
-
-articles = 1
 filename = 'articles.csv'
-headers = {"Content-type": "application/json","Authorization": "Bearer dG9rOjEwMTk2ZjQyX2RkYTFfNDZjNF9hMTk4Xzc4MDFjMDhhM2U1ODoxOjA="}
+headers = {"Content-type": "application/json","Authorization": "Bearer " + token}
 
 results = []
 # open csv, read, and generate arr
