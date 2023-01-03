@@ -34,9 +34,7 @@ for x in range(1, pages + 1):
     # build articles array with article ids
     articles.append(key["id"])
     
-    
-
-#print(articles)
+# save article IDs to CSV
 a = np.asarray(articles)
 np.savetxt("articles.csv", a, fmt='%s', delimiter=",")
 
