@@ -18,7 +18,7 @@ with open("articles.csv") as csvfile:
         results.append(row)
 
 # for each article in arr. Range used to limit for testing.
-for x in range(0,1):
+for x in results:
   # get article ID and set api url
   articleId = ', '.join(results[x])
   articleUrl = f"https://api.intercom.io/articles/{articleId}"
