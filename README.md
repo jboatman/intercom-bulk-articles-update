@@ -1,1 +1,1 @@
-# intercom-bulk-articles-update
+# intercom-articles-bulk-update
