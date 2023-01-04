@@ -17,17 +17,21 @@ with open("articles.csv") as csvfile:
     for row in reader: # each row is a list
         results.append(row)
 
-# for each article in arr. Range used to limit for testing.
+# for each article in arr. Range can be used to limit for testing.
 for x in results:
   # get article ID and set api url
-  articleId = ', '.join(results[x])
-  articleUrl = f"https://api.intercom.io/articles/{articleId}"
+   articleId = ', '.join(x)
+   articleUrl = f"https://api.intercom.io/articles/{articleId}"
   
-  data = {}
-  # get article
-  article = requests.get(articleUrl, data=data, headers=headers)
+   data = {}
+   # get article
+   article = requests.get(articleUrl, data=data, headers=headers)
 
-  article = article.json()
+   article = article.json()
+
+   # optionally write jason to article backup files
+   #with open('./backups/backup' + articleId + '.json', 'w', encoding='utf-8') as f:
+   #  json.dump(article, f, ensure_ascii=False, indent=4)
 
   articleBody = article["body"]
   articleTitle = article["title"]
